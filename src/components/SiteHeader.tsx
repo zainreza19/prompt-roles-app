@@ -11,6 +11,10 @@ export default function SiteHeader() {
         <Link href="/library" className="hover:underline">
           Prompt Library
         </Link>
+        <span className="opacity-30">/</span>
+        <Link href="/yc-guide" className="hover:underline">
+          YC Guide
+        </Link>
       </nav>
     </div>
   );
