@@ -19,6 +19,10 @@ export default function SiteHeader() {
         <Link href="/yc-guide" className="hover:underline">
           YC Guide
         </Link>
+        <span className="opacity-30">/</span>
+        <Link href="/founder-archive" className="hover:underline">
+          Founder Archive
+        </Link>
       </nav>
     </div>
   );
