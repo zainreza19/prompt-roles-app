@@ -23,6 +23,14 @@ export default function SiteHeader() {
         <Link href="/founder-archive" className="hover:underline">
           Founder Archive
         </Link>
+        <span className="opacity-30">/</span>
+        <Link href="/obstacle-map" className="hover:underline">
+          Obstacle Map
+        </Link>
+        <span className="opacity-30">/</span>
+        <Link href="/ideas-generator" className="hover:underline">
+          Ideas
+        </Link>
       </nav>
     </div>
   );
