@@ -10,6 +10,9 @@ export type StartupIdea = {
   ycFit: "Strong" | "Possible" | "Weak";
   businessType: string;
   source: string;
+  marketSize: string;
+  competitors: string;
+  competitiveness: "Low" | "Medium" | "High";
 };
 
 // Manually curated and updated (roughly weekly) — not auto-generated.
@@ -29,6 +32,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "SaaS",
     source: "YC RFS-adjacent: Vertical AI — Legal (see Harvey in Founder Archive), scaled down-market",
+    marketSize: "$5.2B legal AI software market in 2026, growing ~29%/yr (Fortune Business Insights)",
+    competitors: "Harvey, Spellbook, Ironclad, LawGeex — all built for enterprise/large firms, leaving solo and small-firm lawyers underserved",
+    competitiveness: "Medium",
   },
   {
     id: "permitpilot",
@@ -42,6 +48,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "SaaS (govtech)",
     source: "YC RFS: AI-Native Compliance Infrastructure — directly echoes Stratum Industries (Founder Archive/YC Guide)",
+    marketSize: "Part of the $2.55B enterprise AI governance/compliance market (2026); the govtech-permitting slice specifically is unsized and niche",
+    competitors: "Legacy govtech workflow tools (Accela, CityGrows) handle permitting broadly but aren't AI-native; very few AI-specific competitors in this exact niche",
+    competitiveness: "Low",
   },
   {
     id: "silverline",
@@ -55,6 +64,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "Mobile App",
     source: "YC RFS: AI for the Aging Population",
+    marketSize: "$44.6B AI-in-elderly-care market in 2026 (Mordor Intelligence), inside a $2.08T overall elderly care market",
+    competitors: "CareZone, Alexa Together, and several funded aging-tech apps exist, but the category is fragmented with no dominant player in voice-first adult-child coordination specifically",
+    competitiveness: "Medium",
   },
   {
     id: "apiwatchdog",
@@ -68,6 +80,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "SaaS (dev tools)",
     source: "YC RFS: Self-Maintaining APIs (Harsha Gaddipati)",
+    marketSize: "Part of the $8.6-16B API management market (2026, estimates vary by scope)",
+    competitors: "Postman, Kong, and Apigee dominate general API management, but none specifically auto-PR breaking-change fixes — that wedge is close to unclaimed",
+    competitiveness: "Low",
   },
   {
     id: "the-primer-tutor",
@@ -81,6 +96,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "Mobile App",
     source: "YC RFS: The Primer (Andrew Miklas)",
+    marketSize: "$4.1B AI tutoring platform market in 2026, inside a $404B global EdTech market (HolonIQ)",
+    competitors: "Khanmigo, Duolingo ABC, and several well-funded AI tutoring startups (Ello, Synthesis) are already active here",
+    competitiveness: "High",
   },
   {
     id: "proofofone",
@@ -94,6 +112,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "SaaS (infrastructure)",
     source: "YC RFS: Proving You're Human (Max Kolysh)",
+    marketSize: "$15.8B identity verification market in 2026 (Mordor Intelligence), inside a $40.4B fraud detection & prevention market",
+    competitors: "Persona, Onfido, and Sumsub dominate heavyweight KYC verification; World ID and a few others are moving into lightweight \"prove you're human\" specifically, making this space heat up fast",
+    competitiveness: "High",
   },
   {
     id: "productized-growth",
@@ -107,6 +128,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Weak",
     businessType: "Agency / Productized Service",
     source: "Founder Archive: Productizing a Freelance Service pattern (Scribly.io, heylexi)",
+    marketSize: "No single sizing exists for productized services specifically; sits inside the broader content marketing services market, estimated in the tens of billions globally",
+    competitors: "Extremely many — traditional agencies, freelancers, and other productized-service shops (e.g. ContentDistribution.com) all compete here",
+    competitiveness: "High",
   },
   {
     id: "coachreplay",
@@ -120,6 +144,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Weak",
     businessType: "Marketplace",
     source: "Research Methods: Async Video Interview Requests pattern, applied as a two-sided marketplace",
+    marketSize: "No dedicated market figure; sits inside the broader online coaching/mentorship market, directionally estimated in the low tens of billions globally",
+    competitors: "MentorCruise, Coach.me, and various coaching marketplaces exist, but few are built specifically around async video instead of scheduled calls",
+    competitiveness: "Medium",
   },
   {
     id: "microniche-finder",
@@ -133,6 +160,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Weak",
     businessType: "SaaS (meta/tools)",
     source: "Founder Archive: the 4-Filter Micro-SaaS Validator framework, turned into a standalone product",
+    marketSize: "No established market category — this serves a small, non-scoped audience (indie hackers hunting ideas), not a sized industry",
+    competitors: "Informal alternatives exist (manually browsing app stores, Starter Story's own idea databases, Indie Hackers boards) but no dedicated, well-funded competitor",
+    competitiveness: "Low",
   },
   {
     id: "shopfloueros",
@@ -146,6 +176,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "SaaS (industrial)",
     source: "YC RFS: New Operating Systems for the Physical World (Charlie Warren)",
+    marketSize: "$14.8B manufacturing management software market (2025), projected to $31.2B by 2033",
+    competitors: "Fulcrum, Katana, and MRPeasy already serve small manufacturers broadly, but few coordinate human, AI, and robotic scheduling together specifically",
+    competitiveness: "Medium",
   },
   {
     id: "coldchain-sense",
@@ -159,6 +192,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "Hardware + SaaS",
     source: "YC RFS: Data for the Real World (Austin Tindle & Diana Hu)",
+    marketSize: "$8-12B cold chain monitoring market in 2026 (estimates vary widely by scope across research firms)",
+    competitors: "Sensitech, Monnit, and Emerson's Cold Chain Technologies dominate the enterprise tier; small distributors are largely priced out and underserved",
+    competitiveness: "Medium",
   },
   {
     id: "last-mile-books",
@@ -172,6 +208,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "AI-Native Service",
     source: "YC Guide notable company: Last Accounting Company, scaled down to freelancers specifically",
+    marketSize: "$15.8-24.4B small business accounting software market in 2026; freelancers are called out as the fastest-growing buyer segment within it",
+    competitors: "QuickBooks Self-Employed, Bench, Found, and Collective already target freelancers directly — this segment is already fairly crowded",
+    competitiveness: "High",
   },
   {
     id: "swarmguard",
@@ -185,6 +224,9 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "Hardware / Defense-adjacent",
     source: "YC RFS: The Future of American Defense — included as a contrast case: strong YC fit, hardest distribution on this list",
+    marketSize: "$2.3-9.2B counter-drone/counter-UAS market in 2026 (wide range depending on scope), growing ~26.5%/yr",
+    competitors: "Dedrone, Fortem, and Anduril dominate the enterprise/defense tier; almost nobody is building specifically for small regional-utility budgets",
+    competitiveness: "Low",
   },
   {
     id: "smallcloud",
@@ -198,5 +240,8 @@ export const startupIdeas: StartupIdea[] = [
     ycFit: "Strong",
     businessType: "SaaS (infrastructure)",
     source: "YC RFS: A Cloud for Small Software (Pete Koomen)",
+    marketSize: "No dedicated market figure yet — YC frames this as an emerging category, not an existing sized market; sits adjacent to the much larger cloud/PaaS hosting market",
+    competitors: "Vercel, Railway, and Replit are adjacent but built for developers shipping real products, not specifically for disposable AI-agent-built single-user tools",
+    competitiveness: "Low",
   },
 ];

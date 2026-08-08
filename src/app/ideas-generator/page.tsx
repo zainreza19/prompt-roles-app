@@ -7,6 +7,12 @@ function ycFitColor(fit: string) {
   return "#FF6B6B";
 }
 
+function competitivenessColor(level: string) {
+  if (level === "Low") return "#6BCB77";
+  if (level === "Medium") return "#FFD400";
+  return "#FF6B6B";
+}
+
 export default function IdeasGenerator() {
   return (
     <div className="flex-1 flex flex-col items-center px-4 sm:px-8">
@@ -36,7 +42,7 @@ export default function IdeasGenerator() {
 
       <main className="w-full max-w-6xl pb-16">
         <div className="nb-border nb-shadow bg-white overflow-x-auto">
-          <table className="w-full border-collapse text-sm" style={{ minWidth: "1400px" }}>
+          <table className="w-full border-collapse text-sm" style={{ minWidth: "2100px" }}>
             <thead>
               <tr className="bg-[#111111] text-white">
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[160px]">Idea</th>
@@ -44,6 +50,9 @@ export default function IdeasGenerator() {
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[220px]">User Story</th>
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[260px]">Press Release</th>
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[180px]">Target Audience</th>
+                <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[200px]">Market Size</th>
+                <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[220px]">Who's Already Working On This</th>
+                <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[130px]">Competitiveness</th>
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[110px]">Distribution</th>
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[200px]">Best Channel</th>
                 <th className="text-left font-bold uppercase p-3 border-r-2 border-white/20 min-w-[100px]">YC Fit</th>
@@ -63,6 +72,16 @@ export default function IdeasGenerator() {
                   <td className="p-3 border-r-2 border-black font-medium">{row.userStory}</td>
                   <td className="p-3 border-r-2 border-black font-medium italic">{row.pressRelease}</td>
                   <td className="p-3 border-r-2 border-black font-medium">{row.targetAudience}</td>
+                  <td className="p-3 border-r-2 border-black font-medium">{row.marketSize}</td>
+                  <td className="p-3 border-r-2 border-black font-medium">{row.competitors}</td>
+                  <td className="p-3 border-r-2 border-black">
+                    <span
+                      className="nb-border px-2 py-0.5 font-bold text-xs whitespace-nowrap"
+                      style={{ background: competitivenessColor(row.competitiveness) }}
+                    >
+                      {row.competitiveness}
+                    </span>
+                  </td>
                   <td className="p-3 border-r-2 border-black">
                     <span className="nb-border px-2 py-0.5 font-bold text-xs bg-[#111111] text-white whitespace-nowrap">
                       {row.distributionEase}/5
@@ -89,11 +108,14 @@ export default function IdeasGenerator() {
       <footer className="w-full max-w-5xl pb-12 flex flex-col items-center text-center gap-3">
         <div className="nb-border nb-shadow-lg bg-black text-white px-6 py-4 max-w-lg">
           <p className="text-xs opacity-70">
-            Distribution ease uses the same 1-5 scale as the Research
-            Methods page (5 = easiest to turn into a repeatable channel).
-            YC Fit reflects whether the idea maps to a current publicly
-            stated YC thesis, not a guarantee of acceptance. Last updated
-            August 2026.
+            Market size figures are directional, pulled from public market
+            research where a clean category exists — several niches here
+            (productized services, async coaching, emerging categories like
+            "small software cloud") have no single sizing source, and that's
+            noted in the cell rather than invented. Distribution ease uses
+            the same 1-5 scale as the Research Methods page. YC Fit reflects
+            whether the idea maps to a current publicly stated YC thesis,
+            not a guarantee of acceptance. Last updated August 2026.
           </p>
         </div>
       </footer>
