@@ -31,6 +31,10 @@ export default function SiteHeader() {
         <Link href="/ideas-generator" className="hover:underline">
           Ideas
         </Link>
+        <span className="opacity-30">/</span>
+        <Link href="/functions" className="hover:underline">
+          Functions
+        </Link>
       </nav>
     </div>
   );
