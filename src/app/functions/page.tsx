@@ -22,6 +22,13 @@ export default function Functions() {
           Each function here has real, structured knowledge plus prompts
           to apply it, so you're not guessing at what "good" looks like.
         </p>
+        <p className="text-xs font-bold uppercase opacity-60 max-w-md">
+          Just need one quick prompt instead of the full framework? Try the{" "}
+          <Link href="/library" className="underline">
+            Prompt Library
+          </Link>
+          .
+        </p>
       </header>
 
       <main className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-5 pb-16">

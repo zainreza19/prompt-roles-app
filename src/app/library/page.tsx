@@ -1,3 +1,4 @@
+import Link from "next/link";
 import RoleCard from "@/components/RoleCard";
 import SiteHeader from "@/components/SiteHeader";
 import { roles } from "@/data/roles";
@@ -22,6 +23,14 @@ export default function Library() {
           Every role on a build team — Product, Design, Engineering, QA,
           Leadership — gets a ready-made prompt to hand a requirement to
           their AI assistant and get straight to a real plan.
+        </p>
+        <p className="text-xs font-bold uppercase opacity-60 max-w-md">
+          Need more than one prompt? The{" "}
+          <Link href="/functions" className="underline">
+            Functions
+          </Link>{" "}
+          section has full frameworks — process, checklists, mistakes to
+          avoid — not just a single card.
         </p>
       </header>
 
