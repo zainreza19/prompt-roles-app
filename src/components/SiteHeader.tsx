@@ -35,6 +35,10 @@ export default function SiteHeader() {
         <Link href="/functions" className="hover:underline">
           Functions
         </Link>
+        <span className="opacity-30">/</span>
+        <Link href="/business-workflows" className="hover:underline">
+          Business Workflows
+        </Link>
       </nav>
     </div>
   );
