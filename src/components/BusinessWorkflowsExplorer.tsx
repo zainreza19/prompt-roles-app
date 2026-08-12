@@ -131,7 +131,7 @@ export default function BusinessWorkflowsExplorer({
           <p className="text-sm font-medium leading-relaxed">{tier.timeline}</p>
         </DossierRow>
 
-        <DossierRow label="Tools">
+        <DossierRow label="Software & Solutions">
           <p className="text-sm font-medium leading-relaxed">{tier.tools}</p>
         </DossierRow>
 
