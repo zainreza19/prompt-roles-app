@@ -5,6 +5,7 @@ export type Tier = {
   name: string;
   tag: string;
   color: string;
+  tldr: string;
   profile: string;
   steps: Step[];
   roles: string;
@@ -30,6 +31,8 @@ export type Industry = {
   emoji: string;
   status: "live" | "queued";
   tagline: string;
+  blurb?: string;
+  workflowIds?: string[];
   workflows?: WorkflowType[];
 };
 
@@ -41,14 +44,18 @@ export const industries: Industry[] = [
     name: "Real Estate",
     emoji: "🏠",
     status: "live",
+    blurb: "How buying, renting, building, and investing in property actually works — and who gets paid.",
     tagline: "5 workflows mapped — brokerage, leasing, development, property management, investment",
+    workflowIds: ["brokerage", "leasing", "development", "property-management", "investment"],
   },
   {
     id: "trades",
     name: "Trades / Home Services",
     emoji: "🔧",
     status: "live",
+    blurb: "How plumbers, electricians, and HVAC companies actually run a business, from a solo truck to a national brand.",
     tagline: "5 workflows mapped — residential service, new construction, commercial contracts, emergency service, membership plans",
+    workflowIds: ["residential-service", "new-construction", "commercial-contracts", "emergency-service", "membership-plans"],
   },
   { id: "technology", name: "Technology / SaaS", emoji: "💻", status: "queued", tagline: "" },
   { id: "healthcare", name: "Healthcare", emoji: "🩺", status: "queued", tagline: "" },
@@ -78,6 +85,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Solo Agents & Small Independent Brokerages",
         tag: "1–10 agents",
         color: TIER_COLOR.A,
+        tldr:
+          "One person does it all — finds the house, shows it, handles the paperwork — for a slice of the sale price.",
         profile:
           "A single licensed broker-of-record sponsors 1–10 agents. Every agent must legally hang their license under a broker, but at this tier the broker is often also actively selling. Commission-only revenue; the brokerage takes a cut of every agent's split plus sometimes flat desk/E&O/tech fees. Includes true independents and solo operators nested inside large cloud brokerages like eXp or Real Broker, whose split economics mirror this tier even though the parent company is huge. Client base is local, mostly resale, referral-driven.",
         steps: [
@@ -113,6 +122,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Regional & Mid-Size Brokerages / Franchises",
         tag: "10–200 agents",
         color: TIER_COLOR.B,
+        tldr:
+          "A local company with a real team: one person to sell you the house, another to handle the paperwork, another to run the office.",
         profile:
           "A managing broker plus office/sales managers oversee 10–200 agents across one or several branches — franchise offices (Coldwell Banker, RE/MAX, Berkshire Hathaway HomeServices, Keller Williams) or independent regional powerhouses. Coldwell Banker franchisees pay a 5–8% royalty to the parent brand; Compass, technically a single company rather than a franchise, pays no royalty and negotiates splits individually.",
         steps: [
@@ -146,6 +157,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "National / Institutional — Mega-Brokerages & iBuyers",
         tag: "CBRE / JLL / Cushman & Wakefield · Opendoor",
         color: TIER_COLOR.C,
+        tldr:
+          "Either a giant company that sells whole buildings for millions, or a website that buys your house directly using a computer instead of a person.",
         profile:
           "Two structurally different worlds share this tier. Commercial mega-brokerages (CBRE, JLL, Cushman & Wakefield, Colliers, Eastdil Secured) are publicly traded or major private firms brokering the sale of buildings and portfolios — from single-tenant assets to billion-dollar trades — plus leasing, valuation, capital markets, and property management. iBuyers (Opendoor, historically Zillow Offers) are publicly traded tech companies that buy and resell homes directly; Opendoor now runs a capital-light hybrid where ~35% of volume (Q4 2025) never touches its balance sheet — it matches sellers to a buyer with a cash-backup guarantee and earns a transaction fee instead. Opendoor processes 15,000–18,000 homes/year and holds roughly half to three-quarters of the entire iBuyer segment.",
         steps: [
@@ -194,6 +207,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Small Independent Landlords / Small Commercial Brokers",
         tag: "One building, or a handful of small properties",
         color: TIER_COLOR.A,
+        tldr:
+          "One landlord renting out one building, doing all the paperwork and repairs themselves.",
         profile:
           "An individual or small LLC owning a strip center, a small office building, or a few flex/industrial units — often family-owned. Leasing is outsourced to a local independent broker (2–20 agents) paid per-deal commission; owners self-manage or use a part-time property manager rather than an in-house department.",
         steps: [
@@ -227,6 +242,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Regional Property Owners / Mid-Size CRE Firms",
         tag: "Multiple buildings, several hundred thousand to a few million sq ft",
         color: TIER_COLOR.B,
+        tldr:
+          "A company that owns several buildings and has a real team — a leasing agent, a manager, a maintenance crew.",
         profile:
           "Firms like Lee & Associates, Voit Real Estate Services, or Klein Enterprises — privately held, a regional REIT, or a pension-backed operating partnership blending owned-asset rental income with third-party management/leasing fee income. Unlike Tier A, there's a real org chart: a dedicated leasing team, marketing department, and property management division.",
         steps: [
@@ -260,6 +277,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Large Institutional Landlords / REITs / National Brokerages",
         tag: "Boston Properties, Vornado, SL Green · JLL / CBRE / Cushman & Wakefield",
         color: TIER_COLOR.C,
+        tldr:
+          "A giant company or investment fund that owns skyscrapers and hires other giant companies just to find tenants.",
         profile:
           "Tens of millions of square feet, national or global. Boston Properties (BXP) alone runs a Class A office portfolio exceeding 54 million sq ft across gateway markets. Institutional landlords combine in-house asset management with either an in-house leasing team or an exclusive agency listing with a national brokerage (JLL/CBRE/C&W) per property or portfolio.",
         steps: [
@@ -310,6 +329,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Small Local Developers / Builders",
         tag: "1–20 employees · 2–50 homes/year",
         color: TIER_COLOR.A,
+        tldr:
+          "One builder building a few houses at a time, doing the design, the paperwork, and the actual building.",
         profile:
           "Often a single principal wearing multiple hats — developer, GC, and permit-runner at once. The majority of U.S. homebuilders (per NAHB) build fewer than 25 homes a year. Capital is personal savings, friends-and-family money, local hard-money lenders, and small community banks — spec construction loans here typically run a few hundred thousand up to $5M at 80–90% loan-to-cost, and lenders usually want 3+ completed homes in the prior 24 months for the best terms.",
         steps: [
@@ -344,6 +365,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Regional Mid-Size Developers",
         tag: "Johnson Development, Jair Lynch, Pinnacle · 3–15 concurrent projects",
         color: TIER_COLOR.B,
+        tldr:
+          "A company building dozens of homes or a big apartment building at once, using outside investors' money.",
         profile:
           "Tens to a few hundred employees running multiple concurrent deals across one region. Capital mixes the developer's own co-investment (5–15% of equity), outside equity from family offices or regional funds, and bank or debt-fund construction financing. Greystar sits at the very top edge of this tier given its 700,000+ managed units nationally.",
         steps: [
@@ -378,6 +401,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Large National / Institutional Developers",
         tag: "Hines · Related Companies · Lennar at scale",
         color: TIER_COLOR.C,
+        tldr:
+          "A massive company buying thousands of acres of land and building whole new towns, planned over 10-20 years.",
         profile:
           "Thousands of employees, billions under management, simultaneous development across multiple states or countries. Equity comes from pension funds, sovereign wealth funds, insurers, REITs, and large PE real estate funds; debt from syndicated bank facilities, life-company loans, and CMBS. Hines — $93.0B AUM — recently acquired nearly 3,000 acres near Katy/Fulshear, TX for a ~7,000-home master-planned community, partnering with 8 different homebuilders including Toll Brothers, Lennar, and Beazer while retaining ownership of the land — a signature \"one landowner, multiple builder-partners\" institutional pattern.",
         steps: [
@@ -429,6 +454,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Small Independent Property Managers / Self-Managing Landlords",
         tag: "1 person · 1–10 units",
         color: TIER_COLOR.A,
+        tldr:
+          "One landlord personally answering every tenant's call about a leaky faucet.",
         profile:
           "Most often the owner personally, managing a handful of single-family homes or a duplex/triplex/fourplex. If a manager is hired instead of self-managing: 8–12% of monthly rent (national average ~8.49%), or a flat ~$300/month, plus a leasing/placement fee of 50–100% of one month's rent. Largely \"mom-and-pop\" operators using consumer software like TurboTenant, Avail, Innago, or TenantCloud rather than hiring a manager at all.",
         steps: [
@@ -463,6 +490,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Regional Property Management Companies",
         tag: "RAM Partners, WRH Realty, Carter-Haston · hundreds–low thousands of units",
         color: TIER_COLOR.B,
+        tldr:
+          "A company managing hundreds of rental units with its own repair crews and office staff.",
         profile:
           "Managing hundreds to a few thousand units across multiple properties in one region. Full-service scope — leasing, maintenance coordination, and financial operations bundled under one contract with the owner/investor. Management fees run 4–7% of rent for larger multifamily portfolios, lower than Tier A's percentage due to scale, plus separate leasing and renewal fees.",
         steps: [
@@ -496,6 +525,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Large Institutional Property Management Operations",
         tag: "Greystar · RPM Living · Asset Living · CBRE / JLL",
         color: TIER_COLOR.C,
+        tldr:
+          "A giant company managing over a million apartments, using computer programs to help decide the rent price.",
         profile:
           "Tens of thousands to over a million units, operating nationally or globally. Greystar alone manages more than 1.1 million units and beds worldwide (946,000+ U.S. apartment units per the 2025 NMHC 50 ranking) across ~260 markets, with affiliated companies operating roughly $350B of real estate plus a $79B institutional investment platform. Fees compress further here — often bespoke contracts combining a base fee, incentive fees tied to NOI/occupancy, leasing commissions, and construction-management fees rather than a simple percentage of rent.",
         steps: [
@@ -546,6 +577,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Individual / Small Investors",
         tag: "Solo or 2–5 person partnerships · 1–20 units",
         color: TIER_COLOR.A,
+        tldr:
+          "One person buying a rental house with their own savings, or a small group of friends chipping in.",
         profile:
           "Largely unbranded operators — local \"we buy houses\" investors, small property-management-affiliated buyers, BiggerPockets-style DIY syndicators. Capital comes from personal savings, W-2 income, home-equity lines, conventional 20–25%-down mortgages, hard money for rehab, and small \"friends & family\" syndications with $10K+ minimum checks pooled from a handful of passive investors.",
         steps: [
@@ -579,6 +612,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Regional Investment Firms / Small PE Real Estate Funds",
         tag: "Origin Investments, FNRP, BAM Capital · $5M–$50M deals",
         color: TIER_COLOR.B,
+        tldr:
+          "A small investment company pooling money from wealthy individuals to buy an apartment building.",
         profile:
           "5–50 employees raising single-asset or small blind-pool funds ($10M–$100M committed). Capital comes from high-net-worth and accredited investors via Reg D syndications, family offices, and occasional regional bank debt or pension co-investment at the top of this range.",
         steps: [
@@ -614,6 +649,8 @@ export const realEstateWorkflows: WorkflowType[] = [
         name: "Large Institutional Investors",
         tag: "Blackstone, Starwood Capital, Brookfield · $100M+ deals",
         color: TIER_COLOR.C,
+        tldr:
+          "A massive investment company managing billions of dollars, buying whole apartment complexes at once.",
         profile:
           "Multi-billion-dollar global platforms — Blackstone Real Estate alone runs $187B+ AUM; Starwood Capital has deployed $63B+ since inception. Capital comes from public and private pension funds, sovereign wealth funds, insurers, endowments, and institutional LPs in closed-end and open-end funds. A landmark example: the 2021 Blackstone/Starwood 50-50 JV acquisition of Extended Stay America for ~$6B all-cash.",
         steps: [
@@ -667,6 +704,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Solo Tradesperson / Small Local Shop",
         tag: "1–5 techs, 1–4 trucks",
         color: TIER_COLOR.A,
+        tldr:
+          "One plumber or electrician who answers their own phone and drives out to fix it themselves.",
         profile:
           "Owner-operator up to a small crew of 2–5 techs. Owner is often still doing service calls, plus running dispatch, sales, and books from a truck cab or kitchen table. Revenue model is straight time-and-materials or a simple flat-rate book; annual revenue typically $150K–$1.5M. Examples: independent one-truck plumbers/electricians, a local \"Joe's HVAC,\" or a brand-new single-territory franchisee before it scales. Margins are thinnest here because volume is low and overhead is proportionally heavy.",
         steps: [
@@ -698,6 +737,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Regional Multi-Crew Company",
         tag: "10–50 techs, 10–40 trucks",
         color: TIER_COLOR.B,
+        tldr:
+          "A local company with a dispatcher who answers the phone and sends one of many trucks out to you.",
         profile:
           "A defined multi-county/metro service area with a dedicated CSR/dispatch team, a service manager, and often a comfort-advisor sales role. Revenue blends T&M service, flat-rate book pricing, membership plans, and installation/replacement sales at much higher margin than repair. Examples: independent regional brands doing $5M–$25M/year, or a single-location franchisee of Aire Serv, Mister Sparky, Benjamin Franklin Plumbing, or One Hour Heating & Air — franchise royalties here run ~5–8% of gross revenue plus a marketing-fund contribution.",
         steps: [
@@ -729,6 +770,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Large Multi-Location Platform / PE-Backed Consolidator",
         tag: "Wrench Group, Authority Brands, ARS/Rescue Rooter, Roto-Rooter, Neighborly",
         color: TIER_COLOR.C,
+        tldr:
+          "A giant company (often owning many different local brands) with a huge call center answering thousands of calls a day.",
         profile:
           "Hundreds to thousands of technicians/trucks across dozens to hundreds of local markets, built via roll-up: acquire local shops or franchise territories, then impose standardized pricing, software, marketing, and pay structures. Wrench Group (Leonard Green & Partners) runs 35+ brands and $900M+ revenue; Authority Brands (Apax + Goldman Sachs) has 16+ brands; Roto-Rooter (NYSE: CHE) is ~80% company-owned with $700M revenue; Neighborly (KKR, ~$5B valuation) franchises 30+ brands across ~5,500 US units. PE has acquired roughly 800 HVAC/plumbing/electrical companies since 2022, now representing about half of all HVAC-services M&A.",
         steps: [
@@ -775,6 +818,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Small Local Trade Contractor",
         tag: "1–5 crews, $500K–$5M revenue",
         color: TIER_COLOR.A,
+        tldr:
+          "One small crew wiring or plumbing a few new houses at a time for a local builder.",
         profile:
           "5–30 employees; 1–5 field crews of 2–4 people, plus an owner who often still estimates and/or works in the field. Direct contracts with custom home builders or homeowners building 1–20 homes/year, often mixing new-construction rough-in/trim with residential service calls to smooth cash flow. Owner is typically the licensed master electrician/plumber, with journeymen and apprentices working under that one license.",
         steps: [
@@ -806,6 +851,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Regional MEP Contractor",
         tag: "$10M–$250M revenue, 10–50+ crews across multiple sites",
         color: TIER_COLOR.B,
+        tldr:
+          "A bigger company installing electrical or plumbing in dozens of houses in a new neighborhood at once.",
         profile:
           "Multiple simultaneous crews across several active job sites, with dedicated estimating, PM, and service departments. Bids formally on production/tract subdivisions (dozens to hundreds of homes) for national or regional builders (D.R. Horton, Lennar, PulteGroup, KB Home) plus mid-size commercial/light-industrial work. Mid-market MEP firms are under real pressure: firms above $250M revenue grow ~14.5% annually — roughly triple the industry median — while standalone regional shops risk being pushed into low-margin \"labor-only\" roles as GCs bundle scopes.",
         steps: [
@@ -837,6 +884,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Large National MEP Firm",
         tag: "EMCOR ($17B), Comfort Systems ($9B), Southland Industries, Rosendin Electric",
         color: TIER_COLOR.C,
+        tldr:
+          "A massive company installing systems in skyscrapers, hospitals, or entire new neighborhoods' worth of housing.",
         profile:
           "$1B+ in annual revenue, thousands of employees, dozens to hundreds of operating locations. EMCOR Group is the largest at ~$17B in 2025 revenue across 100+ operating companies; Comfort Systems USA runs ~$9B; Southland Industries is the largest privately held mechanical firm by ENR ranking; Rosendin Electric runs ~$5.6B with 12,000+ employees. Revenue comes from design-build and design-assist MEP contracts on master-planned communities, data centers, hospitals, and large industrial builds, often as a holding company of many local operating subsidiaries. Consolidation is actively reshaping this tier — firms above $250M grow ~3x the industry median, largely via acquisition.",
         steps: [
@@ -884,6 +933,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Small Trades Shop with a Handful of Commercial Accounts",
         tag: "3–15 employees, mostly residential + a few commercial clients",
         color: TIER_COLOR.A,
+        tldr:
+          "A small shop that also takes care of a restaurant's or small office's heating and plumbing, on top of regular house calls.",
         profile:
           "1–3 trucks up to ~10, owner often still doing sales, dispatch, and sometimes fieldwork. Commercial contracts are a supplemental, higher-margin revenue stream — a few small office buildings, restaurants, or a strip mall, won through personal relationships rather than formal RFPs. Landing even one or two large commercial accounts can consume most of a small shop's capacity.",
         steps: [
@@ -913,6 +964,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Regional Commercial Service Company with a Dedicated PM Division",
         tag: "$10M–$100M revenue, dozens of active accounts",
         color: TIER_COLOR.B,
+        tldr:
+          "A company with a whole team dedicated just to keeping dozens of stores or offices running smoothly.",
         profile:
           "A clearly separated commercial/PM division distinct from residential service, if the company still does residential at all. Recurring PM contract revenue is the backbone, often 40–60% of division revenue. Clients are regional property management companies, small restaurant/retail chains (5–50 locations), light industrial facilities, and school districts — the tier many ServiceTitan/BuildOps commercial case studies target.",
         steps: [
@@ -943,6 +996,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Large National Facilities-Services/Mechanical Contractor",
         tag: "EMCOR ($17B), ABM Industries, Johnson Controls National Accounts",
         color: TIER_COLOR.C,
+        tldr:
+          "A massive company that keeps hospitals, schools, or national store chains running, with contracts worth millions.",
         profile:
           "Billions in revenue, tens of thousands of employees, national/international footprint. EMCOR's Building Services segment alone generated ~$3.57B in 2025 (21% of total revenue); ABM Industries runs five segments spanning Business & Industry through Aviation; Johnson Controls' National Accounts Service supports over 83% of U.S. acute-care hospitals and 1,800+ colleges/universities, ranging from remote monitoring to fully embedded on-site O&M teams. Clients are national retail chains, hospital systems, university campuses, and big-box REIT property platforms.",
         steps: [
@@ -988,6 +1043,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Solo Tradesperson / Small Shop",
         tag: "1–4 trucks, owner personally on-call",
         color: TIER_COLOR.A,
+        tldr:
+          "The owner personally answers the 2am call about a burst pipe and drives out themselves.",
         profile:
           "An owner-operator, or owner plus 1–3 employees, often still the primary technician. Emergency work is a meaningful side revenue stream, but capacity is capped by how many nights the owner (or one or two techs) can personally absorb — if the owner is already on a job or asleep, the call goes to voicemail and there's no backup tech to hand it to.",
         steps: [
@@ -1017,6 +1074,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Regional Company",
         tag: "5–50 trucks, ~$1M–$20M+ revenue, formal on-call rotation",
         color: TIER_COLOR.B,
+        tldr:
+          "A company with a rotating on-call schedule so someone's always available for emergencies, day or night.",
         profile:
           "The \"2 to 8 truck zone\" is explicitly where a formal answering service starts paying for itself, scaling up to 15–50+ techs where dedicated dispatch software becomes standard. Emergency response is often layered into maintenance-plan memberships as a priority-service perk. Examples span independent regional plumbing/HVAC companies and single-market franchisees of national brands (a local Aire Serv or Mr. Rooter) — this describes the individual location's actual on-the-ground operations, before any national call-center layer.",
         steps: [
@@ -1046,6 +1105,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Large National/Franchise Platform",
         tag: "Roto-Rooter, ARS/Rescue Rooter, Neighborly (Mr. Rooter, Aire Serv)",
         color: TIER_COLOR.C,
+        tldr:
+          "A national brand with a 24/7 call center standing by, ready to send a nearby technician anywhere in the country.",
         profile:
           "National brands or franchise networks operating across dozens to hundreds of markets, where a guaranteed emergency-response experience is itself part of the brand promise. Roto-Rooter dispatches 24/7/365 nationally using outsourced call-center partner Dexcomm for live answering, AI web chat, and AI voice across its franchise network; ARS/Rescue Rooter and Neighborly's Mr. Rooter/Aire Serv brands all advertise 24/7/365 emergency response backed by network-wide service guarantees. Individual franchisees still vary in actual SLA language even though the call-center infrastructure and brand promise is centralized.",
         steps: [
@@ -1090,6 +1151,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Small Independent Shop",
         tag: "1–15 employees, informal/basic plan",
         color: TIER_COLOR.A,
+        tldr:
+          "A shop that occasionally mentions \"want us to check your furnace every year?\" with no real system behind it.",
         profile:
           "A single-location HVAC, plumbing, or electrical shop, $500K–$3M annual revenue, owner-operator involved in sales/dispatch. Plans are usually a simple annual tune-up agreement offered to the existing customer base rather than a marketed product line — membership is a retention afterthought, not a strategic pillar. These are the thousands of unbranded local shops running on basic field service software or paper/QuickBooks — exactly the type of business a franchise or PE platform later acquires as a \"tuck-in.\"",
         steps: [
@@ -1120,6 +1183,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "Regional Company",
         tag: "$5M–$50M revenue, structured multi-tier program",
         color: TIER_COLOR.B,
+        tldr:
+          "A company that sells you a proper yearly plan — like a gym membership, but for your furnace and pipes.",
         profile:
           "A multi-truck, multi-location regional operator, often family-owned or recently PE-backstopped as an \"add-on\" acquisition, running a formal, branded membership program with 2–4 tiers (e.g. Silver/Gold/Platinum). Real examples: Ramco Plumbing, Heating & Air (Silver $129/Gold $189/Platinum $225 annually), Moore Mechanical, CPI Service, Service Champions' \"MVP Plus\" membership.",
         steps: [
@@ -1149,6 +1214,8 @@ export const tradesWorkflows: WorkflowType[] = [
         name: "National Platform / Franchise",
         tag: "ARS/Rescue Rooter, Authority Brands, Neighborly (KKR)",
         color: TIER_COLOR.C,
+        tldr:
+          "A giant company where these membership plans are a huge deal — they're worth more to investors than one-time repairs.",
         profile:
           "Multi-hundred-to-thousand-location platforms, either company-owned (ARS/Rescue Rooter — all locations company-owned) or franchise networks under a PE-backed umbrella (Authority Brands' One Hour Heating & Air ~340 units, Benjamin Franklin Plumbing, Mister Sparky; Neighborly's ~30+ brands including Aire Serv, ~5,500 US franchise units). Membership programs here are a deliberate, board-level KPI and a core lever of enterprise valuation — industry-wide, memberships now represent nearly 28% of total revenue for top-quartile firms in this segment.",
         steps: [
