@@ -66,7 +66,22 @@ type IconKey =
   | "hammer"
   | "clipboard"
   | "bolt"
-  | "star";
+  | "star"
+  | "code"
+  | "headset"
+  | "cross"
+  | "shield"
+  | "flask"
+  | "tag"
+  | "cart"
+  | "storefront"
+  | "box-stack"
+  | "truck"
+  | "gear"
+  | "scale"
+  | "briefcase"
+  | "bank"
+  | "card";
 
 const WORKFLOW_ICON: Record<string, IconKey> = {
   // real estate
@@ -81,6 +96,41 @@ const WORKFLOW_ICON: Record<string, IconKey> = {
   "commercial-contracts": "clipboard",
   "emergency-service": "bolt",
   "membership-plans": "star",
+  // technology / saas
+  "product-development": "code",
+  "sales-gtm": "handshake",
+  "customer-success": "headset",
+  fundraising: "chart-up",
+  // healthcare
+  "patient-care": "cross",
+  "medical-billing": "clipboard",
+  "health-insurance": "shield",
+  "pharma-commercialization": "flask",
+  // financial services
+  "retail-banking": "bank",
+  "payments-processing": "card",
+  "wealth-management": "chart-up",
+  "insurance-underwriting": "shield",
+  // retail / e-commerce
+  merchandising: "tag",
+  "ecommerce-operations": "cart",
+  "store-operations": "storefront",
+  "retail-supply-chain": "box-stack",
+  // manufacturing
+  "product-engineering": "hammer",
+  "production-assembly": "gear",
+  "quality-compliance": "shield",
+  "procurement-supplier": "handshake",
+  // logistics & supply chain
+  "freight-trucking": "truck",
+  "warehousing-fulfillment": "box-stack",
+  "last-mile-delivery": "bolt",
+  "supply-chain-planning": "chart-up",
+  // legal services
+  litigation: "scale",
+  "transactional-law": "briefcase",
+  "legal-ops-billing": "clipboard",
+  "compliance-regulatory": "shield",
 };
 
 function IconGlyph({ icon }: { icon: IconKey }) {
@@ -165,6 +215,129 @@ function IconGlyph({ icon }: { icon: IconKey }) {
           d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.7 7-6.3-3.8-6.3 3.8 1.7-7-5.4-4.8 7.1-.7L12 2Z"
           fill="#111111"
         />
+      );
+    case "code":
+      return (
+        <path
+          d="M8 6 2 12l6 6M16 6l6 6-6 6M14 3l-4 18"
+          stroke="#111111"
+          strokeWidth="2.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      );
+    case "headset":
+      return (
+        <>
+          <path d="M4 14v-2a8 8 0 0 1 16 0v2" stroke="#111111" strokeWidth="2.3" fill="none" />
+          <rect x="2.5" y="13" width="4.5" height="7" rx="1.2" fill="#111111" />
+          <rect x="17" y="13" width="4.5" height="7" rx="1.2" fill="#111111" />
+          <path d="M19.2 20v.5a3 3 0 0 1-3 3h-3" stroke="#111111" strokeWidth="2" fill="none" />
+        </>
+      );
+    case "cross":
+      return (
+        <>
+          <circle cx="12" cy="12" r="10" fill="#111111" />
+          <path d="M12 7v10M7 12h10" stroke="white" strokeWidth="2.6" strokeLinecap="round" />
+        </>
+      );
+    case "shield":
+      return (
+        <path
+          d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"
+          fill="#111111"
+        />
+      );
+    case "flask":
+      return (
+        <>
+          <path d="M10 2v7l-6 11a1.5 1.5 0 0 0 1.3 2.2h13.4A1.5 1.5 0 0 0 20 20l-6-11V2" stroke="#111111" strokeWidth="2.2" fill="none" strokeLinejoin="round" />
+          <path d="M9 2h6" stroke="#111111" strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M6.5 16h11" stroke="#111111" strokeWidth="2" />
+        </>
+      );
+    case "tag":
+      return (
+        <>
+          <path d="M12 3h7a2 2 0 0 1 2 2v7l-10 10-9-9L12 3Z" fill="#111111" />
+          <circle cx="16.5" cy="7.5" r="1.6" fill="white" />
+        </>
+      );
+    case "cart":
+      return (
+        <>
+          <path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 7H6" stroke="#111111" strokeWidth="2.2" fill="none" strokeLinejoin="round" />
+          <circle cx="9" cy="21" r="1.6" fill="#111111" />
+          <circle cx="17" cy="21" r="1.6" fill="#111111" />
+        </>
+      );
+    case "storefront":
+      return (
+        <>
+          <path d="M3 9 4.5 3h15L21 9" stroke="#111111" strokeWidth="2.2" fill="none" strokeLinejoin="round" />
+          <rect x="4" y="9" width="16" height="12" stroke="#111111" strokeWidth="2.2" fill="none" />
+          <rect x="10" y="14" width="4" height="7" fill="#111111" />
+        </>
+      );
+    case "box-stack":
+      return (
+        <>
+          <rect x="3" y="13" width="8" height="8" stroke="#111111" strokeWidth="2" fill="none" />
+          <rect x="13" y="13" width="8" height="8" stroke="#111111" strokeWidth="2" fill="none" />
+          <rect x="8" y="4" width="8" height="8" fill="#111111" />
+        </>
+      );
+    case "truck":
+      return (
+        <>
+          <rect x="1" y="9" width="12" height="8" fill="#111111" />
+          <path d="M13 12h5l4 3v2h-9v-5Z" fill="#111111" />
+          <circle cx="6" cy="19" r="2" fill="#111111" />
+          <circle cx="17" cy="19" r="2" fill="#111111" />
+        </>
+      );
+    case "gear":
+      return (
+        <path
+          d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm9 2.3-2.1-.4a6.8 6.8 0 0 0-.6-1.5l1.3-1.7-1.8-1.8-1.7 1.3a6.8 6.8 0 0 0-1.5-.6L14.4 3h-2.6l-.4 2.1a6.8 6.8 0 0 0-1.5.6L8.2 4.4 6.4 6.2l1.3 1.7c-.3.5-.5 1-.6 1.5L5 9.8v2.6l2.1.4c.1.5.3 1 .6 1.5l-1.3 1.7 1.8 1.8 1.7-1.3c.5.3 1 .5 1.5.6l.4 2.1h2.6l.4-2.1c.5-.1 1-.3 1.5-.6l1.7 1.3 1.8-1.8-1.3-1.7c.3-.5.5-1 .6-1.5l2.1-.4V10.8Z"
+          fill="#111111"
+        />
+      );
+    case "scale":
+      return (
+        <>
+          <path d="M12 2v18M6 21h12" stroke="#111111" strokeWidth="2.3" strokeLinecap="round" />
+          <path d="M4 6h8M12 6h8" stroke="#111111" strokeWidth="2" />
+          <path d="M2 10a3 3 0 0 0 4 0L4 6l-2 4ZM18 10a3 3 0 0 0 4 0l-2-4-2 4Z" fill="#111111" />
+        </>
+      );
+    case "briefcase":
+      return (
+        <>
+          <rect x="2" y="8" width="20" height="13" stroke="#111111" strokeWidth="2.3" fill="none" />
+          <path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3" stroke="#111111" strokeWidth="2.3" fill="none" />
+          <path d="M2 13h20" stroke="#111111" strokeWidth="2" />
+        </>
+      );
+    case "bank":
+      return (
+        <>
+          <path d="M12 2 2 8h20L12 2Z" fill="#111111" />
+          <rect x="2" y="20" width="20" height="2" fill="#111111" />
+          <rect x="4" y="10" width="2.5" height="9" fill="#111111" />
+          <rect x="10.75" y="10" width="2.5" height="9" fill="#111111" />
+          <rect x="17.5" y="10" width="2.5" height="9" fill="#111111" />
+        </>
+      );
+    case "card":
+      return (
+        <>
+          <rect x="2" y="5" width="20" height="14" rx="1.5" stroke="#111111" strokeWidth="2.2" fill="none" />
+          <rect x="2" y="9" width="20" height="3.5" fill="#111111" />
+          <rect x="4.5" y="15" width="6" height="1.8" fill="#111111" />
+        </>
       );
   }
 }

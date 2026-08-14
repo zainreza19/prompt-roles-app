@@ -13,6 +13,7 @@ export type Tier = {
   tools: string;
   moneyFlow: string;
   failurePoints: string[];
+  opportunity?: string;
 };
 
 export type CompareRow = { label: string; a: string; b: string; c: string };

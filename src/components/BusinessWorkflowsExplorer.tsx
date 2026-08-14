@@ -160,6 +160,15 @@ export default function BusinessWorkflowsExplorer({
             ))}
           </ul>
         </DossierRow>
+
+        {tier.opportunity && (
+          <div className="nb-border nb-shadow bg-[#4ECDC4] px-4 py-3 mt-1">
+            <p className="text-[10px] font-bold uppercase opacity-60 mb-1">
+              💡 If you were building a startup here
+            </p>
+            <p className="text-sm font-bold leading-snug">{tier.opportunity}</p>
+          </div>
+        )}
       </div>
     </div>
   );
