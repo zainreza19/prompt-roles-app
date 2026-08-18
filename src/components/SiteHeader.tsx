@@ -68,6 +68,10 @@ export default function SiteHeader() {
           Industry Knowledge
         </Link>
 
+        <Link href="/productivity" className="px-3 py-1.5 hover:underline">
+          Productivity
+        </Link>
+
         <Link href="/obstacle-map" className="px-3 py-1.5 hover:underline">
           Stuck?
         </Link>
