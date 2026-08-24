@@ -115,7 +115,7 @@ export default function IdeasGenerator() {
             noted in the cell rather than invented. Distribution ease uses
             the same 1-5 scale as the Research Methods page. YC Fit reflects
             whether the idea maps to a current publicly stated YC thesis,
-            not a guarantee of acceptance. Last updated August 2026.
+            not a guarantee of acceptance. Last updated August 25, 2026.
           </p>
         </div>
       </footer>
