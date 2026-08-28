@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ResearchMethodsExplorer from "@/components/ResearchMethodsExplorer";
 import SiteHeader from "@/components/SiteHeader";
 
@@ -20,6 +21,14 @@ export default function ResearchMethods() {
           distribution channel later — not just a way to learn something.
           Filter by what you can actually do: remote and async, or in
           person on a schedule.
+        </p>
+        <p className="text-xs font-bold uppercase opacity-60 max-w-md">
+          Ready to actually build a waitlist, not just test one method? The{" "}
+          <Link href="/functions/marketing" className="underline">
+            Marketing function
+          </Link>{" "}
+          has the full pre-launch demand playbook — mechanics, real case
+          studies, and channel fit.
         </p>
       </header>
 

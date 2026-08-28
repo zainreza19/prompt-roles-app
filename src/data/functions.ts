@@ -9,7 +9,7 @@ export type BusinessFunction = {
 export const businessFunctions: BusinessFunction[] = [
   { id: "design", name: "Design", emoji: "🎨", tagline: "UX, UI, brand, and design systems", available: true },
   { id: "engineering", name: "Engineering", emoji: "🛠️", tagline: "Architecture, code quality, technical debt", available: false },
-  { id: "marketing", name: "Marketing", emoji: "📣", tagline: "Positioning, content, paid, brand voice", available: false },
+  { id: "marketing", name: "Marketing", emoji: "📣", tagline: "Pre-launch demand, waitlists, positioning, content", available: true },
   { id: "sales", name: "Sales", emoji: "🤝", tagline: "Pipeline, outreach, closing, pricing", available: true },
   { id: "finance", name: "Finance", emoji: "💰", tagline: "Runway, unit economics, fundraising", available: false },
   { id: "operations", name: "Operations", emoji: "⚙️", tagline: "Process, tooling, hiring, delivery", available: false },
