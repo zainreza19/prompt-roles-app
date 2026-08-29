@@ -60,6 +60,7 @@ export default function SiteHeader() {
             { href: "/yc-guide", label: "YC Guide" },
             { href: "/founder-archive", label: "Founder Archive" },
             { href: "/research-methods", label: "Research Methods" },
+            { href: "/human-psyche", label: "Human Psyche" },
             { href: "/ideas-generator", label: "Ideas Generator" },
           ]}
         />
