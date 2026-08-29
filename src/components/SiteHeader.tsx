@@ -61,6 +61,7 @@ export default function SiteHeader() {
             { href: "/founder-archive", label: "Founder Archive" },
             { href: "/research-methods", label: "Research Methods" },
             { href: "/human-psyche", label: "Human Psyche" },
+            { href: "/pain-points", label: "Pain Points" },
             { href: "/ideas-generator", label: "Ideas Generator" },
           ]}
         />
