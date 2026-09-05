@@ -4,13 +4,14 @@ import { useMemo, useState } from "react";
 import type { Creator, CreatorTier } from "@/data/creators";
 import { TIER_INFO, TIER_ORDER } from "@/data/creators";
 import PlatformBadge from "@/components/PlatformBadge";
+import CreatorAvatar from "@/components/CreatorAvatar";
 
 export default function CreatorsExplorer({ creators }: { creators: Creator[] }) {
   const [tier, setTier] = useState<CreatorTier>("mega");
   const [query, setQuery] = useState("");
 
   const counts = useMemo(() => {
-    const c: Record<CreatorTier, number> = { mega: 0, macro: 0, micro: 0 };
+    const c: Record<CreatorTier, number> = { mega: 0, macro: 0, micro: 0, nano: 0 };
     for (const creator of creators) c[creator.tier]++;
     return c;
   }, [creators]);
@@ -86,11 +87,14 @@ function CreatorCard({ creator }: { creator: Creator }) {
   return (
     <div className="nb-border nb-shadow bg-white p-4 flex flex-col gap-2.5">
       <div className="flex items-start justify-between gap-2">
-        <div>
-          <p className="font-bold uppercase text-sm leading-snug">
-            {creator.name}
-          </p>
-          <p className="text-xs font-mono opacity-60">{creator.handle}</p>
+        <div className="flex items-center gap-2.5 min-w-0">
+          <CreatorAvatar creator={creator} size={40} />
+          <div className="min-w-0">
+            <p className="font-bold uppercase text-sm leading-snug truncate">
+              {creator.name}
+            </p>
+            <p className="text-xs font-mono opacity-60 truncate">{creator.handle}</p>
+          </div>
         </div>
         <span
           className="text-[10px] font-bold uppercase nb-border px-1.5 py-0.5 shrink-0"
@@ -118,14 +122,27 @@ function CreatorCard({ creator }: { creator: Creator }) {
         </p>
       </div>
 
-      <a
-        href={creator.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="nb-press nb-border text-center font-bold uppercase text-xs px-3 py-2 mt-1 bg-black text-white"
-      >
-        Visit profile →
-      </a>
+      <div className="flex gap-2 mt-1">
+        <a
+          href={creator.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nb-press nb-border flex-1 text-center font-bold uppercase text-xs px-3 py-2 bg-black text-white"
+        >
+          Visit profile →
+        </a>
+        {creator.featuredContentUrl && (
+          <a
+            href={creator.featuredContentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Watch an example from ${creator.name}`}
+            className="nb-press nb-border flex-1 text-center font-bold uppercase text-xs px-3 py-2 bg-white"
+          >
+            Watch example
+          </a>
+        )}
+      </div>
     </div>
   );
 }

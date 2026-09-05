@@ -7,7 +7,7 @@ export type Platform =
   | "newsletter"
   | "podcast";
 
-export type CreatorTier = "mega" | "macro" | "micro";
+export type CreatorTier = "mega" | "macro" | "micro" | "nano";
 
 export type Creator = {
   id: string;
@@ -20,6 +20,12 @@ export type Creator = {
   niche: string;
   bio: string;
   whyReachOut: string;
+  // A link to one specific, representative piece of content (a video where
+  // possible, otherwise a podcast episode or post) — distinct from `url`,
+  // which just points at their profile/homepage. Optional: not every
+  // creator (and none of the entries shipped before this field existed)
+  // has one set.
+  featuredContentUrl?: string;
 };
 
 export type CreatorIndustry = {
@@ -30,7 +36,7 @@ export type CreatorIndustry = {
   blurb: string;
 };
 
-export const TIER_ORDER: CreatorTier[] = ["mega", "macro", "micro"];
+export const TIER_ORDER: CreatorTier[] = ["mega", "macro", "micro", "nano"];
 
 export const TIER_INFO: Record<
   CreatorTier,
@@ -39,6 +45,10 @@ export const TIER_INFO: Record<
   mega: { label: "Mega", range: "1M+ followers", color: "#FF6B6B" },
   macro: { label: "Macro", range: "100K – 1M followers", color: "#FF9F40" },
   micro: { label: "Micro", range: "10K – 100K followers", color: "#4ECDC4" },
+  // Light lavender rather than a saturated violet so black label text on
+  // top of it actually clears AA contrast (the three tiers above predate
+  // that check and are a known, separately-tracked gap — see the PRD).
+  nano: { label: "Nano", range: "1K – 10K followers", color: "#C9BBFF" },
 };
 
 // Tiers are the standard influencer-marketing bands (rounded to each
@@ -125,5 +135,13 @@ export const creatorIndustries: CreatorIndustry[] = [
     status: "live",
     blurb:
       "Habits, mindset, and self-improvement creators with broad, highly engaged followings.",
+  },
+  {
+    id: "mac-indie-software",
+    name: "Mac & Indie Software",
+    emoji: "🍎",
+    status: "live",
+    blurb:
+      "Blogs, podcasts, and YouTubers covering Mac and Apple-platform apps specifically — a different, more editorial crowd than startup Twitter.",
   },
 ];

@@ -9,6 +9,7 @@ import { designUxCreators } from "./design-ux";
 import { ecommerceDtcCreators } from "./ecommerce-dtc";
 import { healthFitnessCreators } from "./health-fitness";
 import { personalDevelopmentCreators } from "./personal-development";
+import { macIndieSoftwareCreators } from "./mac-indie-software";
 
 // Populated as each industry's creator list is researched and verified.
 // Add an entry here + flip the matching `status` to "live" in
@@ -24,4 +25,5 @@ export const creatorsByIndustry: Record<string, Creator[]> = {
   "ecommerce-dtc": ecommerceDtcCreators,
   "health-fitness": healthFitnessCreators,
   "personal-development": personalDevelopmentCreators,
+  "mac-indie-software": macIndieSoftwareCreators,
 };

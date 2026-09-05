@@ -277,4 +277,50 @@ export const productivityCreators: Creator[] = [
     bio: "Maker of WIP, BetaList, and Startup Jobs — platforms built specifically for indie hackers building in public.",
     whyReachOut: "Runs some of the most-used indie hacker community tools; his audience is entirely early-stage builders and founders.",
   },
+
+  // --- Nano additions (1K-10K followers) — research pass, Sept 2026 ---
+  // Verified via live YouTube/SocialBlade snapshots and each creator's own
+  // channel. This tier was hard to source with confidence; three names
+  // below are the ones that checked out as real, current, and squarely
+  // productivity/workflow-focused — not a full six, per the "don't
+  // fabricate to hit a number" instruction for this pass.
+  {
+    id: "adam-moody-prod",
+    name: "Adam Moody (Productivity Academy)",
+    handle: "@MyProductivityAcademy",
+    platform: "youtube",
+    url: "https://www.youtube.com/@MyProductivityAcademy",
+    followers: "6.9K",
+    tier: "nano",
+    niche: "Productivity, time management & personal automation",
+    bio: "Runs Productivity Academy, a YouTube channel and site teaching practical time-management, automation, and organization systems.",
+    whyReachOut: "Small, focused channel built entirely around productivity systems and tools — realistic odds of a reply and a dedicated feature.",
+    featuredContentUrl: "https://www.youtube.com/watch?v=5-yKuBE9RxA",
+  },
+  {
+    id: "audrey-thomas-prod",
+    name: "Audrey Thomas (Organized Audrey)",
+    handle: "@OrganizedAudrey",
+    platform: "youtube",
+    url: "https://www.youtube.com/channel/UClUbybrnuT8mkFMyUg26q2w",
+    followers: "1.9K",
+    tier: "nano",
+    niche: "Time management & personal organization systems",
+    bio: "International speaker and productivity expert (CSP) sharing time-management and organization tips under the Organized Audrey brand.",
+    whyReachOut: "Long-tenured productivity voice with a small, reachable channel and an audience actively looking for organization tools.",
+    featuredContentUrl: "https://www.youtube.com/watch?v=wNiimUbjHtI",
+  },
+  {
+    id: "steve-turner-prod",
+    name: "Steve Turner (Turner Time Management)",
+    handle: "@GetTurnerTime",
+    platform: "youtube",
+    url: "https://www.youtube.com/@GetTurnerTime",
+    followers: "1.1K",
+    tier: "nano",
+    niche: "Time-management systems for sales & busy professionals",
+    bio: "Founder of Turner Time Management, teaching time-reclaiming systems refined over 20 years of working with sales teams.",
+    whyReachOut: "Very small, personally-run channel focused on practical time-management systems — a plausible reply for a scheduling/focus app pitch.",
+    featuredContentUrl: "https://www.youtube.com/watch?v=ww1fJlVR9wo",
+  },
 ];
