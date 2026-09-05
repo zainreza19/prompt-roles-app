@@ -70,6 +70,10 @@ export default function SiteHeader() {
           Industry Knowledge
         </Link>
 
+        <Link href="/creators" className="px-3 py-1.5 hover:underline">
+          Creators
+        </Link>
+
         <Link href="/creativity" className="px-3 py-1.5 hover:underline">
           Creativity
         </Link>
