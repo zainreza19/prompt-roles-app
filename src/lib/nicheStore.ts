@@ -1,4 +1,5 @@
 import type { Niche } from "@/data/niche-explorer";
+import { NICHE_SEED } from "@/data/niche-seed";
 
 const STORAGE_KEY = "niche-explorer:v1";
 const EMPTY: Niche[] = [];
@@ -19,12 +20,17 @@ function read(): Niche[] {
   if (cache) return cache;
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (isNicheArray(parsed)) {
-        cache = parsed;
-        return cache;
-      }
+    if (raw === null) {
+      // key has never been set on this browser — auto-seed with bundled
+      // starter research instead of opening empty
+      cache = NICHE_SEED;
+      write(cache);
+      return cache;
+    }
+    const parsed = JSON.parse(raw);
+    if (isNicheArray(parsed)) {
+      cache = parsed;
+      return cache;
     }
   } catch {
     // corrupt/unavailable localStorage — fall through to empty
