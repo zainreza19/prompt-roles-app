@@ -63,6 +63,7 @@ export default function SiteHeader() {
             { href: "/human-psyche", label: "Human Psyche" },
             { href: "/pain-points", label: "Pain Points" },
             { href: "/ideas-generator", label: "Ideas Generator" },
+            { href: "/niche-explorer", label: "Niche Explorer" },
           ]}
         />
 
